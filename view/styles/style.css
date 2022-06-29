@@ -5,36 +5,33 @@
     font-family: 'Courier New', Courier, monospace;
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 body{
     background-color: rgb(61, 60, 60);
 }
 section{
-    min-width: 350px;
-    max-width: 850px;
-    min-height: 300px;
+    width: 100%;
+    max-width: 800px;
     margin: auto;
     background-color: rgb(31, 165, 98);
     border-radius: 30px; 
+    overflow: hidden;
 }
 label,button{
     display: block;
     font-size: 20px;
 }
 div.Insert-data{
-    display: inline-block;
-    display: inline-block;
-    margin-left: 30px;
+    width: 40%;
+    float: left;
 }
 div.data-save{
-    display: inline-block;
-    position: absolute;
-    width: 440px;
+    width: 40%;
+    float: left;
 }
 div{
-    min-width: 350px;
-    min-height: 200px;
-    margin-left: 10px;
+    margin: 30px;
 }
 input{
     width: 100%;
@@ -42,7 +39,6 @@ input{
     margin-bottom: 5px;
 }
 button{
-
     border-radius: 5px;  
     background-color: rgb(88, 131, 131);
     color: rgb(32, 32, 32);
@@ -64,18 +60,13 @@ button.excluir{
     border-radius: 5px;  
     color: red;
 }
-h1{
+h1,h2{
     text-align: center;
     font-style: inherit;
     font-weight: bolder;
     text-transform: uppercase;
 }
-h2{
-    text-align: center;
-    font-style: inherit;
-    font-weight: bolder;
-    text-transform: uppercase;
-}
+
 .error{
     border: 1px solid;
     color : red;
@@ -83,6 +74,7 @@ h2{
 p{
     text-align: justify;
 }
+
 #start{
     position: relative;
     top: 250px;
@@ -98,5 +90,42 @@ p{
 }
 a{
     text-decoration: none;
-    
+    color: bisque;
+}
+abbr{
+    text-decoration: none;
+}
+abbr:hover{
+    text-decoration: overline;
+    color: rgb(93, 180, 214);
+}
+@media (min-width:420px) and (max-width: 815px) {
+    section{
+        background-color: rgb(93, 150, 184);
+    }
+    div{
+        width: 100%;
+        padding: 10px;
+    }
+    div.Insert-data{
+        width: 90%;
+    }
+    div.data-save{
+        width: 90%;
+    }
+}
+@media (max-width:419px) {
+    section{
+        background-color: rgb(184, 167, 93);
+    }
+    div{
+        width: 100%;
+        padding: 10px;
+    }
+    div.Insert-data{
+        width: 90%;
+    }
+    div.data-save{
+        width: 90%;
+    }
 }
