@@ -1,1 +1,1 @@
-let tarefas = new TarefasControl('input', 'btn', '.span');
+let tarefas = new TarefasControl('.input', 'btn', '.span');

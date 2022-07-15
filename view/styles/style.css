@@ -99,6 +99,11 @@ abbr:hover{
     text-decoration: overline;
     color: rgb(93, 180, 214);
 }
+textarea{
+    width: 323px;
+    height: 140px;
+    resize: none;
+}
 @media (min-width:420px) and (max-width: 815px) {
     section{
         background-color: rgb(93, 150, 184);

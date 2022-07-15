@@ -5,6 +5,11 @@ class Tarefas{
         this._date = data;
         this._descrition = descricao;
         this._id;
+        this._nedb = require('NeDB');
+        let db =new this._nedb({
+            filename: 'Tarefas.db',
+            autoload:true
+        })
 
 
     }
@@ -48,12 +53,19 @@ class Tarefas{
     }
     
     saveStorage(json){
-
+        
         let itens = this.isItemtoStorage();
         this.addId(json)
         itens.push(json);
         itens = JSON.stringify(itens);
-        localStorage.setItem('intens', itens);
+        db.insert(itens, (err, itens)=>{
+            if(err){
+                console.log('erro ao inserir na BD');
+            }else{
+                console.log('salvo')
+            }
+        })
+       // localStorage.setItem('intens', );
 
     }
     
