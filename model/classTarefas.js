@@ -1,4 +1,3 @@
-
 class Tarefas{
     constructor(name, data, descricao ){
 
@@ -6,9 +5,7 @@ class Tarefas{
         this._date = data;
         this._descrition = descricao;
         this._id;
-       
     }
-    
 
     get name(){
         return this._name;
@@ -47,42 +44,7 @@ class Tarefas{
         let itens = this.isItemtoStorage();
         json._id = itens.length + 1;
     }
-    
-    bd (){
-        const mongoose = require('mongoose');
-        mongoose.Promise = global.Promise;
-        mongoose.connect('mongodb://localhost/listaTarefas').then(()=>{
-            console.log('full connection');
-        }).catch((e)=>{
-            console.log('erro ao se conectar...',e);
-        });
-
-        const listaT = mongoose.Schema({
-            nome : {
-                type: String,
-                require: true
-            },
-            data : {
-                type: Date,
-                require: true
-            },
-            descrixao: {
-                type: String,
-                require: true
-            },
-            id: {
-                type: Number,
-                require: true
-            }
-        });
-        mongoose.Model('listaT', listaT);
-
-        const lista = mongoose.model('listaT')
-
-        return lista;
-    }
     saveStorage(json){
-        const lista =this.bd();
         
         let itens = this.isItemtoStorage();
         this.addId(json)
