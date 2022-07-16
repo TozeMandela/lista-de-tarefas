@@ -1,3 +1,4 @@
+
 class Tarefas{
     constructor(name, data, descricao ){
 
@@ -5,14 +6,9 @@ class Tarefas{
         this._date = data;
         this._descrition = descricao;
         this._id;
-        this._nedb = require('NeDB');
-        let db =new this._nedb({
-            filename: 'Tarefas.db',
-            autoload:true
-        })
-
-
+       
     }
+    
 
     get name(){
         return this._name;
@@ -52,18 +48,49 @@ class Tarefas{
         json._id = itens.length + 1;
     }
     
+    bd (){
+        const mongoose = require('mongoose');
+        mongoose.Promise = global.Promise;
+        mongoose.connect('mongodb://localhost/listaTarefas').then(()=>{
+            console.log('full connection');
+        }).catch((e)=>{
+            console.log('erro ao se conectar...',e);
+        });
+
+        const listaT = mongoose.Schema({
+            nome : {
+                type: String,
+                require: true
+            },
+            data : {
+                type: Date,
+                require: true
+            },
+            descrixao: {
+                type: String,
+                require: true
+            },
+            id: {
+                type: Number,
+                require: true
+            }
+        });
+        mongoose.Model('listaT', listaT);
+
+        const lista = mongoose.model('listaT')
+
+        return lista;
+    }
     saveStorage(json){
+        const lista =this.bd();
         
         let itens = this.isItemtoStorage();
         this.addId(json)
         itens.push(json);
         itens = JSON.stringify(itens);
-        db.insert(itens, (err, itens)=>{
-            if(err){
-                console.log('erro ao inserir na BD');
-            }else{
-                console.log('salvo')
-            }
+        console.log('çççç: ',itens)
+        new lista({
+            
         })
        // localStorage.setItem('intens', );
 

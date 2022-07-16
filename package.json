@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/TozeMandela/lista-de-tarefas#readme",
   "dependencies": {
+    "mongoose": "^6.4.4",
     "nedb": "^1.8.0"
   }
 }
