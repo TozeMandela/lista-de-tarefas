@@ -54,24 +54,25 @@ class TarefasControl{
     excluir(){
         
         this.$resp.querySelectorAll('.excluir').forEach((btn, index) => {
-            btn.addEventListener('click', () => {
+        btn.addEventListener('click', () => {
 
-                let itens = new Tarefas();
-                let itens1 = itens.isItemtoStorage()
-                    if((index+1)===itens1[index]._id){
-                        itens1.splice(index,1);
-                    }
-                    localStorage.setItem('intens','[]');
-                    itens1.forEach(element => {
-                         itens.saveStorage(element)
-                    });
-                    this.showResp();
-                    this.excluir()
-                })
+            let itens = new Tarefas();
+            let itens1 = itens.isItemtoStorage()
+                if((index+1)===itens1[index]._id){
+                    itens1.splice(index,1);
+                }
+                localStorage.setItem('intens','[]');
+                itens1.forEach(element => {
+                        itens.saveStorage(element)
+                });
+                this.showResp();
+                this.excluir()
+            })
 
-            });
-        }
+        });
     }
+}
+
 
 
     
