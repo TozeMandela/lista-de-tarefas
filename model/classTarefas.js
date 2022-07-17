@@ -45,13 +45,15 @@ class Tarefas{
         json._id = itens.length + 1;
     }
     saveStorage(json){
-        
+        require('./bd');
+        const {mongo, table} = require('./bd');
+
         let itens = this.isItemtoStorage();
         this.addId(json)
         itens.push(json);
         itens = JSON.stringify(itens);
         console.log('çççç: ',itens)
-        new lista({
+        new table({
             
         })
        // localStorage.setItem('intens', );
